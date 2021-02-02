@@ -24,6 +24,7 @@ section.chat__section {
     background: #f1f1f1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .brand h1 {
     text-transform: uppercase;
@@ -31,6 +32,31 @@ section.chat__section {
     color: #444;
     margin-left: 10px;
 }
+.brand .left{
+    display: flex;
+    align-items: center;
+}
+.brand .connections{
+    display: flex;
+}
+.brand .connections .connected{
+    padding: 10px;
+    margin: 0px 10px;
+    font-weight: normal;
+    color: white;
+    background: #8F8BE890;
+    transition: background 0.1s ease-in;
+}
+.brand .connections .connected.selected{
+    background: #8F8BE8;
+}
+.brand .connections .connected:nth-child(1){
+    margin-right: 10px;
+}
+.brand .connections .connected:last-child{
+    margin-left: 10px;
+}
+
 .message__area{
     height: 500px;
     padding: 16px;
@@ -39,22 +65,7 @@ section.chat__section {
     overflow-y: auto;
     padding-top: 40px;
 }
-textarea {
-    width: 100%;
-    border: none;
-    padding: 20px;
-    font-size: 16px;
-    outline: none;
-    background: #FBFBFB;
-}
 
-.message {
-    padding: 20px; 
-    border-radius: 4px; 
-    margin-bottom: 40px;
-    max-width: 300px;
-    position: relative;
-}
 .incoming {
     background: #8F8BE8;
     color: #fff;  
@@ -70,4 +81,56 @@ textarea {
     left: 0;
     color: #333;
     font-size: 14px;
+}
+.msg-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    display: none;
+    background: #f1f1f1;
+}
+#textarea {
+    width: 80%;
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    font-family: sans-serif;
+    border-radius: 7px;
+}
+.message__area .left{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 20px;
+}
+.message__area .right{
+    padding: 0px 20px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.message__area div .message{
+    margin: 0px;
+    align-items: flex-start;
+    margin: 10px 0px;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+    width: max-content;
+}
+.message__area .right .message{
+    align-items: flex-end;
+
+}
+.message__area div .message .sender{
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.message__area div .message .message-text{
+    background: #8F8BE8;
+    color: white;
+    padding: 10px;
+    border-radius: 7px;
 }

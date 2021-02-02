@@ -14,13 +14,28 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-// Socket 
-const io = require('socket.io')(http)
+let connectedClientsList = [];
 
+// Socket 
+const io = require('socket.io')(http);
 io.on('connection', (socket) => {
-    console.log('Connected...')
-    socket.on('message', (msg) => {
-        socket.broadcast.emit('message', msg)
+    
+    socket.on('joining-details', (data) => {
+        socket.name = data.name;
+        socket.joinid = data.id;
+        socket.join(data.id);
+        connectedClientsList.push(data)
+        io.emit('connected-clients', connectedClientsList)
+    });
+
+    socket.on('message', (data) => {
+        socket.to(data.to).emit('message', data);
+    })
+
+    socket.on('disconnect', () => {
+        connectedClientsList = connectedClientsList.filter((item) => (item.id !== socket.joinid));
+
+        io.emit('connected-clients', connectedClientsList)
     })
 
 })
