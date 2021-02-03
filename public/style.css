@@ -66,22 +66,6 @@ section.chat__section {
     padding-top: 40px;
 }
 
-.incoming {
-    background: #8F8BE8;
-    color: #fff;  
-}
-.outgoing {
-    background: #e9eafd;
-    color: #787986;
-    margin-left: auto;
-}
-.message h4 {
-    position: absolute;
-    top: -20px;
-    left: 0;
-    color: #333;
-    font-size: 14px;
-}
 .msg-field{
     display: flex;
     justify-content: center;
